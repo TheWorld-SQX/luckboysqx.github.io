@@ -148,6 +148,287 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git基本概念、基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/28/Git%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">Git基本概念、基本操作</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/28/Git%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2022-02-28T14:59:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本概念：工作区，暂存区，版本库；"><a href="#基本概念：工作区，暂存区，版本库；" class="headerlink" title="基本概念：工作区，暂存区，版本库；"></a>基本概念：工作区，暂存区，版本库；</h1><h2 id="文字前添加-就是标题（级别类推）"><a href="#文字前添加-就是标题（级别类推）" class="headerlink" title="文字前添加#就是标题（级别类推）"></a>文字前添加#就是标题（级别类推）</h2><p>一段（空白一行 就是一段）</p>
+<p>换行（文字后加&gt;=2空格)  </p>
+<p>添加图像用感叹号 (!), 方括号增加替代文本，图片链接在圆括号里，链接后可加一个可选的图片标题文本。</p>
+<p>插入图片Markdown语法代码：<img src="%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" alt="图片alt" title="图片title"><br><img src="/assets/img/philly-magic-garden.jpg" alt="这是图片" title="Magic Gardens"></p>
+<p>基本概念：<br>Git 工作区、暂存区和版本库概念：   </p>
+<p>工作区：电脑里看到的目录。<br>暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git/index）中，所以把暂存区也叫作索引（index）。<br>版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。<br>图示工作区、版本库中的暂存区和版本库之间的关系：<br>！<a href="D:\SQXBlog\source\1.jpg">图</a><br>图中左侧为工作区，右侧为版本库。在版本库中标记为 “index” 的区域是暂存区（stage/index），标记为 “master” 的是 master 分支所代表的目录树。</p>
+<p>图中我们可以看出此时 “HEAD” 实际是指向 master 分支的一个”游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。</p>
+<p>图中的 objects 标识的区域为 Git 的对象库，实际位于 “.git/objects” 目录下，里面包含了创建的各种对象及内容。</p>
+<p>当对工作区修改（或新增）的文件执行 git add 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</p>
+<p>当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。</p>
+<p>当执行 git reset HEAD 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。</p>
+<p>当执行 git rm –cached <file> 命令时，会直接从暂存区删除文件，工作区则不做出改变。</p>
+<p>当执行 git checkout . 或者 git checkout – <file> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区中的改动。</p>
+<p>当执行 git checkout HEAD . 或者 git checkout HEAD <file> 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。<br>ps:暂将Git看做两块：（工作模块）工作区 ，（版本模块）暂存区与版本库；  </p>
+<h1 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a>Git基本操作</h1><p><img src="D:\SQXBlog\source\git-command.jpg" alt="图"><br>说明：</p>
+<p>workspace：工作区<br>staging area：暂存区/缓存区<br>local repository：版本库或本地仓库<br>remote repository：远程仓库<br>一个简单的操作步骤：  </p>
+<p>$ git init<br>$ git add .<br>$ git commit<br>git init - 初始化仓库。<br>git add . - 添加文件到暂存区。<br>git commit - 将暂存区内容添加到仓库中。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/28/Git%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Unity-TPS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/07/Unity-TPS/">Unity TPS</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/07/Unity-TPS/" class="archive-article-date">
+  	<time datetime="2021-11-07T08:56:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="摄像机"><a href="#摄像机" class="headerlink" title="摄像机"></a>摄像机</h1><pre><code>1固定摄像机位置（一个方便TPS视角观察的位置），  
+2玩家 可滑动鼠标来查看四周 并且摄像机能回到固定的视角； 
+注：Star() 意即开始时调用；Update() 意即一直更新;所以 相应的代码 放 相应的位置；  
+    (1)想通过输入（键盘 鼠标）控制，应该先了解Unity这个软件是如何对输入 进行管理的（即：Project          Sets-&gt;InputManager）；    
+    ①上下Y滑动，实际上是围绕某个轴转；  
+    ②左右X滑动，    也是围绕某个轴转；  
+</code></pre>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/07/Unity-TPS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Maya骑士笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/30/Maya%E9%AA%91%E5%A3%AB%E7%AC%94%E8%AE%B0/">Maya骑士笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/30/Maya%E9%AA%91%E5%A3%AB%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2021-10-30T12:44:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#笔记<br>给导入图像建层，锁定，方便操作（建模时摸不到）；<br>前视图里面创建基本形；<br>头部；立方体1，平滑分段1；<br>开启对称，世界X；<br>删掉一些面，成头盔基本型；<br>如果想记录操作过程，复制生成新模型的时候，记得看一下左下角图层；<br>正视图，前视图也调下（多方位观察），线框下，调点，布线（调整点使整体布线平滑流畅）；<br>选择全部面，挤出，局部偏移0.5；<br>选择两条边缘边 硬化边，倒角边（切角禁用），卡线使边缘尖锐有棱角； 中间头盔线，头盔边框线 （卡线出现的问题：有棱太明显；解决方式：选择两个点，使用目标焊接工具，左键不丢光标选择到目标顶点）；  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/30/Maya%E9%AA%91%E5%A3%AB%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-write-blog-step" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/16/write-blog-step/">write blog step</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/16/write-blog-step/" class="archive-article-date">
+  	<time datetime="2021-10-16T09:47:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#新建博客操作</p>
+<p>打开 D:\SQXBlog，运行 git bash,新建文档被创建在 D:\SQXBlog\source_posts（source_posts即资源放置）。</p>
+<p>#AdvancedSkeleton插件</p>
+<p>下载解压到C:\Users\28428\Documents\maya\scripts（即 文档-maya-脚本），<br>将install.mel拖到Maya运行窗口直接安装。Adv方便做动画，就放在动画窗口下。</p>
+<p>#Maya中将渲染器设置为Arnold</p>
+<p>窗口-设置首选项-插件管理器-mtoa.mll</p>
+<p>#advancedSkeleton绑定</p>
+<p>adv绑定是流程式的，一步一步按步骤来不易出错；<br>Preparation 模型清理（创建组geo（geo土地，可理解为“原型”） 保存 清理）；<br>为了方便对文件任意修改，需要 参考 （清理后的）原文件 再创建个 ”副本“ my rig（我操纵的版本）；<br>在其中一个版本对模型进行操作；另一个是导出操作修改后的；<br>新建的my rig为我操作的版本 其参照文件为原（清理后的）文件；<br>参照进来会自动建层（需手动显示）； 即存档（rig01，rig02，rig03……）此时文件两个版本，（rig01），和被参照；</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/16/write-blog-step/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-”社区精神“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,6 +452,7 @@
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>关于社区：常见社区像GitHub(hub 中心;）、Node.js等；<br>##<br>社区：相同兴趣的人聚集地方，在社区里 分享信息资源（一些知识，工具，代码；）  </p>
 <p>社区一大好处：共享代码（早些时候，代码（软件包）之类的都是通过网页共享的，很麻烦，如果有人把它们集中在一个地方就好了）于是某社区某个人用JavaScript(最开始是用来操作网页的脚本)写了个工具包npm(Node Package Manager)；  </p>
 <p>npm运行在Node.js上<br>(Node.js是一个JavaScript运行时环境，是个与网页有关的工具;<br>随着JavaScript被重视，主流浏览器为Java提供更好的运行环境;<br>Node.js使用Chrome V8是Chromium项目开源的JavaScript引擎；<br>Node.js在网页这方面表现出色);<br>#<br>Hexo与社区;Hexo需要的环境支持:Node.js、git;<br>Hexo是个博客框架，使用MarkDown编写；</p>
+<h1 id="上传文件到GitHub"><a href="#上传文件到GitHub" class="headerlink" title="上传文件到GitHub"></a>上传文件到GitHub</h1><p>本地工作区-&gt;Stage（暂存区）—&gt;远程GitHub上的版本库分支（默认是master）；<br>用到的命令：<br>git init<br>git add [. -A]  //add 工作区的东西提交到Stage（暂存区）<br>git commit -m “”  //commit 暂存区的东西提交到版本库分支<br>git remote add origin [仓库地址]  //关联到 GitHub 的仓库；<br>                                    使用git remote add 本地与远程github仓库关联的时候提示错误：fatal: remote origin already exists；因为一个本地分支（.git文件里的）只能对应一个远程库的分支<br>git push  origin master       //推送本次修改  </p>
 
       
 
@@ -399,7 +681,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 һ������
+    		&copy; 2022 һ������
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

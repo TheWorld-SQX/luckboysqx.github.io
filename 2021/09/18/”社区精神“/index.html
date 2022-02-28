@@ -16,7 +16,7 @@
 <meta property="og:description" content="关于社区：常见社区像GitHub(hub 中心;）、Node.js等；##社区：相同兴趣的人聚集地方，在社区里 分享信息资源（一些知识，工具，代码；）   社区一大好处：共享代码（早些时候，代码（软件包）之类的都是通过网页共享的，很麻烦，如果有人把它们集中在一个地方就好了）于是某社区某个人用JavaScript(最开始是用来操作网页的脚本)写了个工具包npm(Node Package Manage">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-09-18T14:50:08.000Z">
-<meta property="article:modified_time" content="2021-09-18T16:35:11.540Z">
+<meta property="article:modified_time" content="2021-11-03T13:42:30.287Z">
 <meta property="article:author" content="һ������">
 <meta name="twitter:card" content="summary">
   
@@ -173,6 +173,7 @@
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>关于社区：常见社区像GitHub(hub 中心;）、Node.js等；<br>##<br>社区：相同兴趣的人聚集地方，在社区里 分享信息资源（一些知识，工具，代码；）  </p>
 <p>社区一大好处：共享代码（早些时候，代码（软件包）之类的都是通过网页共享的，很麻烦，如果有人把它们集中在一个地方就好了）于是某社区某个人用JavaScript(最开始是用来操作网页的脚本)写了个工具包npm(Node Package Manager)；  </p>
 <p>npm运行在Node.js上<br>(Node.js是一个JavaScript运行时环境，是个与网页有关的工具;<br>随着JavaScript被重视，主流浏览器为Java提供更好的运行环境;<br>Node.js使用Chrome V8是Chromium项目开源的JavaScript引擎；<br>Node.js在网页这方面表现出色);<br>#<br>Hexo与社区;Hexo需要的环境支持:Node.js、git;<br>Hexo是个博客框架，使用MarkDown编写；</p>
+<h1 id="上传文件到GitHub"><a href="#上传文件到GitHub" class="headerlink" title="上传文件到GitHub"></a>上传文件到GitHub</h1><p>本地工作区-&gt;Stage（暂存区）—&gt;远程GitHub上的版本库分支（默认是master）；<br>用到的命令：<br>git init<br>git add [. -A]  //add 工作区的东西提交到Stage（暂存区）<br>git commit -m “”  //commit 暂存区的东西提交到版本库分支<br>git remote add origin [仓库地址]  //关联到 GitHub 的仓库；<br>                                    使用git remote add 本地与远程github仓库关联的时候提示错误：fatal: remote origin already exists；因为一个本地分支（.git文件里的）只能对应一个远程库的分支<br>git push  origin master       //推送本次修改  </p>
 
       
 
@@ -276,6 +277,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/10/16/write-blog-step/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          write blog step
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/04/02/%E4%BD%BF%E7%94%A8markdown%E5%86%99hexo%E5%8D%9A%E5%AE%A2%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">使用markdown写hexo博客知识总结</div>
@@ -305,7 +315,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0GitHub"><span class="toc-number">2.</span> <span class="toc-text">上传文件到GitHub</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -334,7 +344,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 һ������
+    		&copy; 2022 һ������
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
