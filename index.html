@@ -298,7 +298,7 @@
         <h1 id="基本概念：工作区，暂存区，版本库；"><a href="#基本概念：工作区，暂存区，版本库；" class="headerlink" title="基本概念：工作区，暂存区，版本库；"></a>基本概念：工作区，暂存区，版本库；</h1><h2 id="文字前添加-就是标题（级别类推）"><a href="#文字前添加-就是标题（级别类推）" class="headerlink" title="文字前添加#就是标题（级别类推）"></a>文字前添加#就是标题（级别类推）</h2><p>一段（空白一行 就是一段）</p>
 <p>换行（文字后加&gt;=2空格)  </p>
 <p>添加图像用感叹号 (!), 方括号增加替代文本，图片链接在圆括号里，链接后可加一个可选的图片标题文本。</p>
-<p>插入图片Markdown语法代码：<img src="%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" alt="图片alt" title="图片title"><br><img src="/_asset/i_love_learn.png" alt="这是图片" title="唯有学习"><br>D:\SQXBlog\source_asset<br>基本概念：<br>Git 工作区、暂存区和版本库概念：   </p>
+<p>插入图片Markdown语法代码：<img src="%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" alt="图片alt" title="图片title"><br><img src="/_asset/i_love_learn.png" alt="这是图片" title="唯有学习">D:\SQXBlog\source_asset<br>基本概念：<br>Git 工作区、暂存区和版本库概念：   </p>
 <p>工作区：电脑里看到的目录。<br>暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git/index）中，所以把暂存区也叫作索引（index）。<br>版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。<br>图示工作区、版本库中的暂存区和版本库之间的关系：<br>！<a href="D:\SQXBlog\source\1.jpg">图</a><br>图中左侧为工作区，右侧为版本库。在版本库中标记为 “index” 的区域是暂存区（stage/index），标记为 “master” 的是 master 分支所代表的目录树。</p>
 <p>图中我们可以看出此时 “HEAD” 实际是指向 master 分支的一个”游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。</p>
 <p>图中的 objects 标识的区域为 Git 的对象库，实际位于 “.git/objects” 目录下，里面包含了创建的各种对象及内容。</p>
