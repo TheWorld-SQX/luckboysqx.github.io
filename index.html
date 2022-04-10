@@ -295,9 +295,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基本概念：工作区-暂存区-版本库"><a href="#基本概念：工作区-暂存区-版本库" class="headerlink" title="基本概念：工作区 暂存区 版本库"></a>基本概念：工作区 暂存区 版本库</h1><p><img src="_asset/i_love_learn.png" alt="表情包" title="唯有学习">  </p>
-<img src="/_asset/i_love_learn.png" class="[class names]" title="[width] [height] " alt="title text">
-<p>基本概念：<br>Git 工作区、暂存区和版本库概念：<br>工作区：电脑里看到的目录。<br>暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git/index）中，所以把暂存区也叫作索引（index）。<br>版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。<br>图示工作区、版本库中的暂存区和版本库之间的关系：<br><img src="_asset/1.jpg" alt="举例说明图" title="工作区与版本库"><br><img src="https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt="image" title="工作区与版本库"><br>图中左侧为工作区，右侧为版本库。在版本库中标记为 “index” 的区域是暂存区（stage/index），标记为 “master” 的是 master 分支所代表的目录树。</p>
+        <h1 id="基本概念：工作区-暂存区-版本库"><a href="#基本概念：工作区-暂存区-版本库" class="headerlink" title="基本概念：工作区 暂存区 版本库"></a>基本概念：工作区 暂存区 版本库</h1><p><a target="_blank" rel="noopener" href="https://luckboysqx.github.io/#&gid=1&pid=1"><img src="_asset/i_love_learn.png" alt="表情包" title="唯有学习"></a></p>
+<img src="/_asset/i_love_learn.png" class="[class names]" title="[2] [2] " alt="title text">
+<p>基本概念：<br>Git 工作区、暂存区和版本库概念：<br>工作区：电脑里看到的目录。<br>暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git/index）中，所以把暂存区也叫作索引（index）。<br>版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。<br>图示工作区、版本库中的暂存区和版本库之间的关系：<br><img src="_asset/1.jpg" alt="图1" title="工作区与版本库"><br><img src="https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt="图1"><br>图中左侧为工作区，右侧为版本库。在版本库中标记为 “index” 的区域是暂存区（stage/index），标记为 “master” 的是 master 分支所代表的目录树。</p>
 <p>图中我们可以看出此时 “HEAD” 实际是指向 master 分支的一个”游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。</p>
 <p>图中的 objects 标识的区域为 Git 的对象库，实际位于 “.git/objects” 目录下，里面包含了创建的各种对象及内容。</p>
 <p>当对工作区修改（或新增）的文件执行 git add 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</p>
@@ -306,8 +306,7 @@
 <p>当执行 git rm –cached <file> 命令时，会直接从暂存区删除文件，工作区则不做出改变。</p>
 <p>当执行 git checkout . 或者 git checkout – <file> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区中的改动。</p>
 <p>当执行 git checkout HEAD . 或者 git checkout HEAD <file> 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。<br>ps:暂将Git看做两块：（工作模块）工作区 ，（版本模块）暂存区与版本库；  </p>
-<h1 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a>Git基本操作</h1><p><img src="_asset/git-command.jpg" alt="工作区 暂存区 本地库 远程库"><br>说明：</p>
-<p>workspace：工作区<br>staging area：暂存区/缓存区<br>local repository：版本库或本地仓库<br>remote repository：远程仓库<br>一个简单的操作步骤：<br>$ git init<br>$ git add .<br>$ git commit<br>git init - 初始化仓库。<br>git add . - 添加文件到暂存区。<br>git commit - 将暂存区内容添加到仓库中。</p>
+<h1 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a>Git基本操作</h1><p><a target="_blank" rel="noopener" href="https://luckboysqx.github.io/#&gid=1&pid=5"><img src="_asset/git-command.jpg" alt="图2"></a><br>说明：<br>workspace：工作区<br>staging area：暂存区/缓存区<br>local repository：版本库或本地仓库<br>remote repository：远程仓库<br>一个简单的操作步骤：<br>git init - 初始化仓库。<br>git add . - 添加文件到暂存区。<br>git commit - 将暂存区内容添加到仓库中。</p>
 
       
 
@@ -316,6 +315,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -885,6 +895,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
